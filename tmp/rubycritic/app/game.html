@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../assets/vendor/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../overview.html"><img src="../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../simple_cov_index.html" class="project-nav-item coverage-index-nav"><i class="fa fa-umbrella"></i>Coverage</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2022-08-17 17:58:26 -0500'>2022-08-17 17:58:26 -0500</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app /</small> game.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating b big">
+              B
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">61</span><small> lines of codes</small></div>
+              <div><span class="metric">4</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">16.8</span><small> complexity/method</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">67.38</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                22
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+require &#39;./frame&#39;
+
+class Game<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Game has no descriptive comment</span>          </div>  </li></ol>
+  def initialize
+    @game = Array.new(10) { Frame.new }
+  end
+
+  def start<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>Game#start has approx 7 statements</span>          </div>  </li></ol>
+    @game.each_with_index do |frame, i|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#start has the variable name 'i'</span>          </div>  </li></ol>
+      if i &lt;= 0
+        frame.next_frame = @game[i + 1]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls '@game[i + 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'frame.next_frame = @game[i + 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'i + 1' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
+      elsif i &gt;= 9
+        frame.previous_frame = @game[i - 1]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls '@game[i - 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'frame.previous_frame = @game[i - 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'i - 1' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
+      else
+        frame.next_frame = @game[i + 1]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls '@game[i + 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'frame.next_frame = @game[i + 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'i + 1' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L13" class="js-smell-location">0</a>                  <a href="game.html#L17" class="js-smell-location">1</a>                  </div>  </li></ol>
+        frame.previous_frame = @game[i - 1]<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls '@game[i - 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'frame.previous_frame = @game[i - 1]' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#start calls 'i - 1' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L15" class="js-smell-location">0</a>                  <a href="game.html#L18" class="js-smell-location">1</a>                  </div>  </li></ol>
+      end
+      random_try(frame, i)
+    end
+
+    calculate_totals
+  end
+
+  def random_try(frame, i)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>Game#random_try has approx 10 statements</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank"><b>UncommunicativeParameterName</b></a>        </span>      </div>      <span>Game#random_try has the parameter name 'i'</span>          </div>  </li></ol>
+    r1 = rand(11)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'rand(11)' 4 times</span>              <span>Locations:</span>                  <a href="game.html#L27" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  <a href="game.html#L39" class="js-smell-location">2</a>                  <a href="game.html#L42" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#random_try has the variable name 'r1'</span>          </div>  </li></ol>
+    frame.first_try = r1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+
+    if r1 != 10
+      r2 = rand(11 - r1)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#random_try has the variable name 'r2'</span>              <span>Locations:</span>                  <a href="game.html#L31" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
+      frame.second_try = r2<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'frame.second_try = r2' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L32" class="js-smell-location">0</a>                  <a href="game.html#L37" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+    end
+
+    if i == 9 &amp;&amp; r1 == 10<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank"><b>ControlParameter</b></a>        </span>      </div>      <span>Game#random_try is controlled by argument 'i'</span>              <span>Locations:</span>                  <a href="game.html#L35" class="js-smell-location">0</a>                  <a href="game.html#L41" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'i == 9' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L35" class="js-smell-location">0</a>                  <a href="game.html#L41" class="js-smell-location">1</a>                  </div>  </li></ol>
+      r2 = rand(11)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'rand(11)' 4 times</span>              <span>Locations:</span>                  <a href="game.html#L27" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  <a href="game.html#L39" class="js-smell-location">2</a>                  <a href="game.html#L42" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#random_try has the variable name 'r2'</span>              <span>Locations:</span>                  <a href="game.html#L31" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
+      frame.second_try = r2<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'frame.second_try = r2' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L32" class="js-smell-location">0</a>                  <a href="game.html#L37" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+
+      r3 = rand(11)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'rand(11)' 4 times</span>              <span>Locations:</span>                  <a href="game.html#L27" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  <a href="game.html#L39" class="js-smell-location">2</a>                  <a href="game.html#L42" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#random_try has the variable name 'r3'</span>              <span>Locations:</span>                  <a href="game.html#L39" class="js-smell-location">0</a>                  <a href="game.html#L42" class="js-smell-location">1</a>                  </div>  </li></ol>
+      frame.third_try = r3<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'frame.third_try = r3' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L40" class="js-smell-location">0</a>                  <a href="game.html#L43" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+    elsif i == 9 &amp;&amp; frame.is_spare?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank"><b>ControlParameter</b></a>        </span>      </div>      <span>Game#random_try is controlled by argument 'i'</span>              <span>Locations:</span>                  <a href="game.html#L35" class="js-smell-location">0</a>                  <a href="game.html#L41" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'i == 9' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L35" class="js-smell-location">0</a>                  <a href="game.html#L41" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+      r3 = rand(11)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'rand(11)' 4 times</span>              <span>Locations:</span>                  <a href="game.html#L27" class="js-smell-location">0</a>                  <a href="game.html#L36" class="js-smell-location">1</a>                  <a href="game.html#L39" class="js-smell-location">2</a>                  <a href="game.html#L42" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Game#random_try has the variable name 'r3'</span>              <span>Locations:</span>                  <a href="game.html#L39" class="js-smell-location">0</a>                  <a href="game.html#L42" class="js-smell-location">1</a>                  </div>  </li></ol>
+      frame.third_try = r3<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#random_try calls 'frame.third_try = r3' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L40" class="js-smell-location">0</a>                  <a href="game.html#L43" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>Game#random_try refers to 'frame' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="game.html#L28" class="js-smell-location">0</a>                  <a href="game.html#L32" class="js-smell-location">1</a>                  <a href="game.html#L37" class="js-smell-location">2</a>                  <a href="game.html#L40" class="js-smell-location">3</a>                  <a href="game.html#L41" class="js-smell-location">4</a>                  <a href="game.html#L43" class="js-smell-location">5</a>                  </div>  </li></ol>
+    end
+  end
+
+  def calculate_totals
+    @game.each do |frame|
+      puts &#39;- - - - - - - - -&#39;
+      if !@game[9]
+        puts &quot;#{frame.first_try} #{frame.second_try}&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#calculate_totals calls 'frame.first_try' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L51" class="js-smell-location">0</a>                  <a href="game.html#L53" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#calculate_totals calls 'frame.second_try' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L51" class="js-smell-location">0</a>                  <a href="game.html#L53" class="js-smell-location">1</a>                  </div>  </li></ol>
+      else
+        puts &quot;#{frame.first_try} #{frame.second_try} #{frame.third_try}&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#calculate_totals calls 'frame.first_try' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L51" class="js-smell-location">0</a>                  <a href="game.html#L53" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>Game#calculate_totals calls 'frame.second_try' 2 times</span>              <span>Locations:</span>                  <a href="game.html#L51" class="js-smell-location">0</a>                  <a href="game.html#L53" class="js-smell-location">1</a>                  </div>  </li></ol>
+      end
+      puts frame.calculate_total
+    end
+  end
+end
+
+ngame = Game.new
+ngame.start
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="../assets/vendor/javascripts/jquery.min.js"></script>
+    <script src="../assets/vendor/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="../assets/vendor/javascripts/jquery.scrollTo.min.js"></script>
+    <script src="../assets/vendor/javascripts/jquery.timeago.js"></script>
+    <script src="../assets/vendor/javascripts/highcharts.src-4.0.1.js"></script>
+    <script src="../assets/vendor/javascripts/prettify.js"></script>
+    <script src="../assets/vendor/javascripts/bootstrap.min.js"></script>
+    <script src="../assets/javascripts/application.js"></script>
+    <script src="../assets/vendor/javascripts/jquery.filtertable.min.js"></script>
+  </body>
+</html>
