@@ -1,7 +1,8 @@
+require "minitest/reporters" 
+Minitest::Reporters.use!
 require "minitest/autorun"
 require "./game.rb"
 require "./frame.rb"
-
 class TestFrame < Minitest::Test
 
   def setup
@@ -49,18 +50,15 @@ class TestGame < Minitest::Test
     end
   end
 
-  # def test_is_total_sum
-  #   total = 0;
-  #     if(@game_test.game[9] == 9)
-  #       total += frame.first_try
-  #       total += frame.second_try
-  #       if(frame.third_try != nil)
-  #         total += frame.third_try
-  #       end
-  #     else
-  #       total += frame.total
-  #     end
-  #   assert_equal(total, @game_test.game[9].total)
-  # end
+  def test_is_total_sum
+    frame = @game_test.game[9]
+    total = frame.previous_frame.total
+    if frame.is_strike? || frame.is_spare?
+      total += frame.first_try + frame.second_try + frame.third_try
+    else 
+      total += frame.first_try + frame.second_try
+    end
+    assert_equal(total, frame.total)
+  end
 
 end
