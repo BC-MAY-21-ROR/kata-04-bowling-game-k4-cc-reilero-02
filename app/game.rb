@@ -3,6 +3,8 @@
 require './frame'
 
 class Game
+  attr_accessor :game
+
   def initialize
     @game = Array.new(10) { Frame.new }
   end
