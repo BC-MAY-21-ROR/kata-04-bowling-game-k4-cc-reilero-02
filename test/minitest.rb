@@ -1,8 +1,7 @@
-require "minitest/reporters" 
-Minitest::Reporters.use!
 require "minitest/autorun"
-require "./game.rb"
-require "./frame.rb"
+require_relative "../app/game"
+require_relative "../app/frame"
+
 class TestFrame < Minitest::Test
 
   def setup
@@ -35,8 +34,8 @@ class TestGame < Minitest::Test
   end
 
   def test_when_strike_second_try_is_nil
-    @game_test.game.each do |frame|
-      if frame.is_strike?
+    @game_test.game.each_with_index do |frame, i|
+      if frame.is_strike? && i != 9
         assert_equal(frame.second_try, 0)
       end
     end
@@ -59,6 +58,20 @@ class TestGame < Minitest::Test
       total += frame.first_try + frame.second_try
     end
     assert_equal(total, frame.total)
+  end
+
+  def test_third_try_on_last_frame_when_is_strike_or_spare
+    frame = @game_test.game[9]
+    if frame.is_strike? || frame.is_spare?
+      refute_nil(frame.third_try)
+    end
+  end
+
+  def test_third_try_on_last_frame_when_is_not_strike_or_spare
+    frame = @game_test.game[9]
+    if !frame.is_strike? && !frame.is_spare?
+      assert_nil(frame.third_try)
+    end
   end
 
 end
